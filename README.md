@@ -1,15 +1,18 @@
-# esx_diving
+# Tenue de Plongée (Script ESX)
 
-# Installation :
-  - Importez le fichier SQL pour créer l'item et ajouté le a votre shop
-  - Mettez esx_diving dans le dossier [esx]
-  - Démarrez esx_diving sur server.cfg
-  > ensure esx_diving
+**Auteur:** ChouCookieSan
+**Description:** Script de tenue de plongée pour CalicoCity.
+**Version:** 1.0
 
-Après cela, vous devez en acheter un sur cet article dans un magasin, vous approcher de l'eau et simplement l'utiliser.
-Une fois la plongée terminée, vous devrez vous rendre dans un magasin de vêtements pour vous changer.
+## Utilisation
 
-# Changer le chronomètre de plongée ?
-Il suffit de changer la valeur en **gras**
+Pour utiliser la tenue de plongée, les joueurs doivent avoir un item nommé "plongee2" dans leur inventaire. Lorsqu'ils utilisent cet item, la tenue de plongée est automatiquement équipée,seulement dans l'eau. Pour retirer la tenue, les joueurs peuvent à nouveau utiliser l'item "plongee2" pour la déséquiper.
 
-SetPedMaxTimeUnderwater(GetPlayerPed(-1), **1500.00**)
+## Installation
+
+1. Copiez le dossier "esx_diving" dans le répertoire "resources" de votre serveur FiveM.
+2. Assurez-vous d'ajouter "ensure esx_diving" dans votre fichier "server.cfg" pour que le script soit chargé au démarrage du serveur.
+
+## Avertissement
+
+Ce script a été développé pour un usage spécifique sur le serveur CalicoCity. Vous pouvez le modifier et l'adapter à vos besoins.

@@ -9,11 +9,13 @@ end)
 
 local UseTenu = false
 
+------------- Tenue de plongée
 RegisterNetEvent('esx_tenues:settenueplongee')
 AddEventHandler('esx_tenues:settenueplongee', function()
-	if UseTenu then
-		TriggerEvent('skinchanger:getSkin', function(skin)
-    		if skin.sex == 0 then
+  if UseTenu then
+    TriggerEvent('skinchanger:getSkin', function(skin)
+      if skin.sex == 0 then
+		        -- Tenue pour homme
         		local clothesSkin = {
             		['tshirt_1'] = 123, ['tshirt_2'] = 0,
 					['ears_1'] = -1, 	['ears_2'] = 0,
@@ -29,8 +31,9 @@ AddEventHandler('esx_tenues:settenueplongee', function()
 					['chain_1'] = 0, 	['chain_2'] = 0,
             		['bproof_1'] = 0,  	['bproof_2'] = 0
         		}
-        		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-    		else
+				TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+			else
+				 -- Tenue pour femme
         		local clothesSkin = {
             		['tshirt_1'] = 153, ['tshirt_2'] = 0,
 					['ears_1'] = -1, 	['ears_2'] = 0,
@@ -45,23 +48,24 @@ AddEventHandler('esx_tenues:settenueplongee', function()
 					['glasses_1'] = 28, ['glasses_2'] = 0,
 					['chain_1'] = 0, 	['chain_2'] = 0,
             		['bproof_1'] = 0,  	['bproof_2'] = 0
-        		}
-        		TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
-        	end
-        	local playerPed = GetPlayerPed(-1)
-			SetEnableScuba(GetPlayerPed(-1),true)
-			SetPedMaxTimeUnderwater(GetPlayerPed(-1), 1500.00)
-    	end)
-	else
-		TriggerEvent('skinchanger:getSkin', function(skin)
-			ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, hasSkin)
+				}
+				TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+			  end
+			  local playerPed = GetPlayerPed(-1)
+			  SetEnableScuba(playerPed, true)
+			  SetPedMaxTimeUnderwater(playerPed, 1500.00)
+			end)
+		  else
+			TriggerEvent('skinchanger:getSkin', function(skin)
+			  ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, hasSkin)
 				if hasSkin then
-					TriggerEvent('skinchanger:loadSkin', skin)
-					TriggerEvent('esx:restoreLoadout')
+				  TriggerEvent('skinchanger:loadSkin', skin)
+				  TriggerEvent('esx:restoreLoadout')
 				end
 			end)
 		end)
 	end
-	UseTenu  = not UseTenu
-	--GUI.Time = GetGameTimer()
+
+	UseTenu = not UseTenu
+	-- GUI.Time = GetGameTimer()
 end)
